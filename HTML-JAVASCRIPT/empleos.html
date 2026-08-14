@@ -56,6 +56,8 @@
                         <option value="java">Java</option>
                         <option value="react">React</option>
                         <option value="nodejs">Node.js</option>
+                        <option value="Kotlin">Kotlin</option>
+                        <option value="AWS">AWS</option>
                     </select>
                     <select name="location" id="filter-location">
                         <option value="">Ubicación</option>
@@ -81,11 +83,10 @@
             <h2>Resultados de búsqueda</h2>
         
             <div class="jobs-listings">
-                <article data-technology="react" data-modalidad="remoto" class="job-listing-card">
+                <article data-technology="react" data-modalidad="remoto" data-experience="junior" class="job-listing-card">
                     <div>
                     <h3>Ingeniero de Software</h3>
                     <small>Tech Solutions Inc. | Remoto</small>
-
                     <p>
                         Buscamos un ingeniero de software con experiencia en
                         desarrollo web y conocimientos en JavaScript, React y
@@ -93,10 +94,9 @@
                         en equipo y tener buenas habilidades de comunicación.
                     </p>
                     </div>
-
                     <button class="button-apply-job">Aplicar</button>
                 </article>
-                <article data-modalidad="cdmx" class="job-listing-card">
+                <article data-technology="python" data-modalidad="cdmx" data-experience="mid" class="job-listing-card">
                     <div>
                         <h3>Analista de Datos</h3>
                         <small>Data Driven Co. | Ciudad de México</small>
@@ -104,7 +104,7 @@
                     </div>
                     <button class="button-apply-job">Aplicar</button>
                 </article>
-                <article data-modalidad="Guadalajara" class="job-listing-card">
+                <article data-technology="Kotlin" data-modalidad="Guadalajara" data-experience="senior" class="job-listing-card">
                     <div>
                         <h3>Desarrollador de Aplicaciones Móviles</h3>
                         <small>Mobile Apps Ltd. | Guadalajara</small>
@@ -117,7 +117,7 @@
                     </div>
                     <button class="button-apply-job">Aplicar</button>
                 </article>
-                <article data-modalidad="remoto" class="job-listing-card">
+                <article data-technology="AWS" data-modalidad="remoto" data-experience="lead" class="job-listing-card">
                     <div>
                         <h3>Ingeniero de DevOps</h3>
                         <small>Cloud Services SA | Remoto</small>

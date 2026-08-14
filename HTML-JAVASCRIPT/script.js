@@ -19,45 +19,46 @@ jobListingSection.addEventListener('click', (event) => {
 
 const mensaje = document.querySelector('#filter-selected-value');
 const jobs = document.querySelectorAll('.job-listing-card');
+
 const filterTechnology = document.querySelector('#filter-technology');
 filterTechnology.addEventListener('change', (event) => {
-    const selectedValue = filterTechnology.value;
-    console.log(selectedValue);
-   
-    if (selectedValue) {
-        mensaje.textContent = `Tecnología seleccionada: ${selectedValue}`;
+    const selectedTechnology = filterTechnology.value;
+    if (selectedTechnology) {
+        mensaje.textContent = `Tecnología seleccionada: ${selectedTechnology}`;
     }
-    // const selectedTechnology = event.target.value;
-    // const jobListings = document.querySelectorAll('.job-listing');
-    // jobListings.forEach(jobListing => {
-    //     const jobTechnology = jobListing.getAttribute('data-technology');
-    //     if (selectedTechnology === '' || jobTechnology === selectedTechnology) {
-    //         jobListing.style.display = 'block';
-    //     } else {
-    //         jobListing.style.display = 'none';
-    //     }
-    // });
-});
 
+
+    jobs.forEach(job => {
+        // const jobTechnology = job.dataset.technology;
+        const jobTechnology = job.getAttribute('data-technology')
+        const isShown = selectedTechnology === '' || jobTechnology === selectedTechnology;
+        job.classList.toggle('is-hidden',!isShown);
+        /*
+        if(selectedTechnology === '' || jobTechnology === selectedTechnology) {
+            // job.style.display = 'flex';
+            job.classList.remove('is-hidden')
+        } else {
+            // job.style.display = 'none';
+            job.classList.add('is-hidden')
+        }
+        */
+    })
+});
 
 const filterLocation = document.querySelector('#filter-location');
 filterLocation.addEventListener('change', (event) => {
     const selectedLocation = event.target.value;
-        if (selectedLocation) {
+    if (selectedLocation) {
             mensaje.textContent = `Ubicación seleccionada: ${selectedLocation}`;
         }
-    }
-)
-//     const jobListings = document.querySelectorAll('.job-listing');
-//     jobListings.forEach(jobListing => {
-//         const jobLocation = jobListing.getAttribute('data-location');
-//         if (selectedLocation === '' || jobLocation === selectedLocation) {
-//             jobListing.style.display = 'block';
-//         } else {
-//             jobListing.style.display = 'none';
-//         }
-//     });
-// });
+    
+    jobs.forEach(job => {
+        //const jobMmodalidad = job.dataset.modalidad;
+        const jobModalidad = job.getAttribute('data-modalidad')
+        const isShown = selectedLocation === '' || jobModalidad === selectedLocation;
+        job.classList.toggle('is-hidden',!isShown);
+    })
+})
 
 const filterExperienceLevel = document.querySelector('#filter-experience-level');
 filterExperienceLevel.addEventListener('change', (event) => {
@@ -65,22 +66,13 @@ filterExperienceLevel.addEventListener('change', (event) => {
         if (selectedExperience) {
             mensaje.textContent = `Nivel de experiencia seleccionada: ${selectedExperience}`;
         }
-    }
-)
-
-
-    //     const selectedExperienceLevel = event.target.value;
-//     const jobListings = document.querySelectorAll('.job-listing');
-//     jobListings.forEach(jobListing => {
-//         const jobExperienceLevel = jobListing.getAttribute('data-experience-level');
-//         if (selectedExperienceLevel === '' || jobExperienceLevel === selectedExperienceLevel) {
-//             jobListing.style.display = 'block';
-//         } else {
-//             jobListing.style.display = 'none';
-//         }
-//     });
-// });
-
+    jobs.forEach(job => {
+        //const jobExperience = job.dataset.experience;
+        const jobExperience = job.getAttribute('data-experience')
+        const isShown = selectedExperience === '' || jobExperience === selectedExperience;
+        job.classList.toggle('is-hidden',!isShown);
+    })
+});
 
 // const searchInput = document.querySelector('#empleos-search-input');
 // searchInput.addEventListener('input', function(){
