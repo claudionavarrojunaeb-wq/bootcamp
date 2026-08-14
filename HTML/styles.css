@@ -418,3 +418,12 @@ article {
     }
   }
 }
+
+.button-apply-job{
+  background: #09f;
+  &.is-applied{
+    background: green;
+    cursor: not-allowed;  
+    pointer-events: none;
+  }
+}
