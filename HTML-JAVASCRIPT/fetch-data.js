@@ -16,7 +16,7 @@ fetch("./data.json") /* fetch es asíncrono */
             article.dataset.technology = job.data.technology
 
             article.innerHTML = `<div>
-                <h3>${job.titulo}</h3>
+                <h3 id="titulo">${job.titulo}</h3>
                 <small>${job.empresa} | ${job.ubicacion}</small>
                 <p>${job.descripcion}</p>
                 </div>

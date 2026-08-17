@@ -1,3 +1,20 @@
+const busqueda = document.querySelector("#empleos-search-input")
+busqueda.addEventListener('input', (event) =>{
+    let contador = 0
+    console.log(busqueda.value)
+    const valor = busqueda.value
+    const jobs = document.querySelectorAll('.job-listing-card');//!
+    jobs.forEach(job => {
+            const jobTextoTitulo = job.querySelector('#titulo').textContent
+            const isShown = jobTextoTitulo === '' || jobTextoTitulo.includes(valor);
+            job.classList.toggle('is-hidden',!isShown);
+            if(isShown){
+                contador  +=1
+            };
+        }) 
+    console.log(contador)
+});
+
 const mensaje = document.querySelector('#filter-selected-value');
 // const jobs = document.querySelectorAll('.job-listing-card'); //! se mueve a cada filtro para que al actualizar se obtengan los jobs
 
@@ -9,22 +26,14 @@ filterTechnology.addEventListener('change', (event) => {
         mensaje.textContent = `Tecnología seleccionada: ${selectedTechnology}`;
     }
 
-
     jobs.forEach(job => {
-        // const jobTechnology = job.dataset.technology;
         const jobTechnology = job.getAttribute('data-technology')
-        const isShown = selectedTechnology === '' || jobTechnology === selectedTechnology;
+        const arregloTecnologias = jobTechnology.split(',');// lo dejo como arreglo
+        //console.log(arregloTecnologias)
+        //busca la coincidencia dentro del arreglo
+        const isShown = selectedTechnology === '' || arregloTecnologias.includes(selectedTechnology);
         job.classList.toggle('is-hidden',!isShown);
-        /*
-        if(selectedTechnology === '' || jobTechnology === selectedTechnology) {
-            // job.style.display = 'flex';
-            job.classList.remove('is-hidden')
-        } else {
-            // job.style.display = 'none';
-            job.classList.add('is-hidden')
-        }
-        */
-    })
+    }) 
 });
 
 const filterLocation = document.querySelector('#filter-location');
@@ -57,3 +66,14 @@ filterExperienceLevel.addEventListener('change', (event) => {
         job.classList.toggle('is-hidden',!isShown);
     })
 });
+
+// jobs.forEach(job => {
+//         const jobTechnology = job.getAttribute('data-technology');
+//         const jobMmodalidad = job.getAttribute('dataset.modalidad');
+//         const jobExperience = job.getAttribute('data-experience');
+//         const isShownTechnology = selectedTechnology === '' || arregloTecnologias.includes(selectedTechnology);
+//         const isShownLocation = selectedLocation === '' || jobModalidad === selectedLocation;
+//         const isShownExperience = selectedExperience === '' || jobExperience === selectedExperience;
+//         const isShown = isShownTechnology & isShownExperience & isShownExperience
+//         job.classList.toggle('is-hidden',!isShown);
+// })

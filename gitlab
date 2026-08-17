@@ -1,5 +1,6 @@
 git add .
-git commit -m '202608141544 - JavaScript - Introducción a JSON'
+git commit -m '202608162243 - JavaScript - Separando código en módulos de JavaScript'
+git remote add gitlab git@p-app-gitlab.junaeb.local:claudio.navarro/bootcamp.git
 git push -u gitlab main
 Username for 'http://p-app-gitlab.junaeb.local': claudio.navarro
 Password for 'http://claudio.navarro@p-app-gitlab.junaeb.local': Junaeb26_07.*
